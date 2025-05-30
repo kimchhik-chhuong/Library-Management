@@ -22,6 +22,19 @@ export class Member extends User {
     return borrowed;
   }
 
+  returnBook(): Fine {
+    return new Fine();
+  }
+
+  viewBorrowBooks(): BorrowedBook[] {
+    return this.borrowBooks;
+  }
+
+  reviewBook(book: Book, rating: number, comment: string): Review {
+    const review = new Review(this, book, rating, comment, new Date());
+    this.reviews.push(review);
+    return review;
+  }
 
 
 }
