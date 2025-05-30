@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-export class Member {
-    
-=======
 import { User } from './User';
 import { BorrowedBook } from './BorrowedBook';
 import { Review } from './Review';
@@ -40,6 +36,4 @@ export class Member extends User {
     return review;
   }
 
-
->>>>>>> 91af826601550d2d37a70795e2c7968ba31460a9
 }
