@@ -1,7 +1,7 @@
 import { User } from './User';
+import { Book } from './Book';
 import { BorrowedBook } from './BorrowedBook';
 import { Review } from './Review';
-import { Book } from './Book';
 import { Fine } from './Fine';
 
 export class Member extends User {
