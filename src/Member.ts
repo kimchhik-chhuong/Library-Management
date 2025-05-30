@@ -1,5 +1,5 @@
 import { User } from './User';
-import { BorrowBook } from './BorrowBook';
+import { BorrowedBook } from './BorrowedBook';
 import { Review } from './Review';
 import { Book } from './Book';
 import { Fine } from './Fine';
@@ -11,15 +11,15 @@ export class Member extends User {
     public email: string,
     public phone: string,
     public address: string,
-    public borrowBooks: BorrowBook[] = [],
+    public borrowedBooks: BorrowedBook[] = [],
     public reviews: Review[] = []
   ) {
     super();
   }
 
-  borrowBook(book: Book): BorrowBook {
-    const borrowed = new BorrowBook(this, book, new Date(), new Date(), new Date(), new Fine());
-    this.borrowBooks.push(borrowed);
+  borrowedBook(book: Book): BorrowedBook {
+    const borrowed = new BorrowedBook(this, book, new Date(), new Date(), new Date(), new Fine());
+    this.borrowedBooks.push(borrowed);
     return borrowed;
   }
 
@@ -27,8 +27,8 @@ export class Member extends User {
     return new Fine();
   }
 
-  viewBorrowBooks(): BorrowBook[] {
-    return this.borrowBooks;
+  viewBorrowedBooks(): BorrowedBook[] {
+    return this.borrowedBooks;
   }
 
   reviewBook(book: Book, rating: number, comment: string): Review {
