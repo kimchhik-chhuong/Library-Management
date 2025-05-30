@@ -1,11 +1,10 @@
-export class Fine {
+export class Payment {
     constructor(
         private amount: number,
+        private paymentdate: Date,
         private paid: boolean
     ){}
 
-    pay(): void{
-
+    public getPaymentDetail(): void{
     }
-    
 }
