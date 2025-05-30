@@ -5,6 +5,7 @@ export class Fine {
     ){}
 
     pay(): void{
+        this.amount= this.amount;
 
     }
     
