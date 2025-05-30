@@ -5,6 +5,8 @@ export class Payment {
         private paid: boolean
     ){}
 
-    public getPaymentDetail(): void{
+    public getPaymentDetail(): string{
+        const status = this.paid ? 'Paid' : 'Not Paid';
+        return `Amount: $${this.amount.toFixed(2)}, Date: ${this.paymentdate.toDateString()}, Status: ${status}`;
     }
 }
