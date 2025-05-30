@@ -16,8 +16,12 @@ export class Member extends User {
   ) {
     super();
   }
+    borrowBook(book: Book): BorrowedBook {
+    const borrowed = new BorrowedBook(this, book, new Date(), new Date(), new Date(), new Fine());
+    this.borrowBooks.push(borrowed);
+    return borrowed;
+  }
 
 
 
-  
 }
