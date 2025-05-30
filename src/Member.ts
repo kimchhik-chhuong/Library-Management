@@ -6,13 +6,13 @@ import { Fine } from './Fine';
 
 export class Member extends User {
   constructor(
-    public id: string,
-    public fullName: string,
-    public email: string,
-    public phone: string,
-    public address: string,
-    public borrowBooks: BorrowedBook[] = [],
-    public reviews: Review[] = []
+    private id: string,
+    private fullName: string,
+    private email: string,
+    private phone: string,
+    private address: string,
+    private borrowBooks: BorrowedBook[] = [],
+    private reviews: Review[] = []
   ) {
     super();
   }
@@ -34,6 +34,14 @@ export class Member extends User {
     const review = new Review(this, book, rating, comment, new Date());
     this.reviews.push(review);
     return review;
+  }
+
+   getId(): number {
+    return parseInt(this.id);
+  }
+
+  getName(): string {
+    return this.fullName;
   }
 
 
