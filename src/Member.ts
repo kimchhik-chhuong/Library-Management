@@ -1,7 +1,7 @@
 import { User } from './User';
-import { BorrowedBook } from './BorrowedBook';
+import { BorrowedBook } from './BorrowBook';
 import { Review } from './Review';
-import { Book } from './Book';
+import { Book } from './Books';
 import { Fine } from './Fine';
 
 export class Member extends User {
@@ -36,8 +36,6 @@ export class Member extends User {
     return review;
   }
 
-<<<<<<< HEAD
-=======
    getId(): number {
     return parseInt(this.id);
   }
@@ -46,7 +44,4 @@ export class Member extends User {
     return this.fullName;
   }
 
-
->>>>>>> 91af826601550d2d37a70795e2c7968ba31460a9
->>>>>>> 563e71d3b957b98c96379140fa71f26702ce9840
 }
