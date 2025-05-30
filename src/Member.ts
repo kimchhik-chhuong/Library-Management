@@ -1,23 +1,29 @@
+<<<<<<< HEAD
 // import { User } from './User';
 import { BorrowedBook } from './BorrowedBook';
+=======
+import { User } from './User';
+import { BorrowBook } from './BorrowBook';
+>>>>>>> 82319c145d9c8a40e98fd7d6b2aba95fbc827c6c
 import { Review } from './Review';
 // import { Book } from './Book';
 // import { Fine } from './Fine';
 
 export class Member extends User {
   constructor(
-    private id: string,
-    private fullName: string,
-    private email: string,
-    private phone: string,
-    private address: string,
-    private borrowBooks: BorrowedBook[] = [],
-    private reviews: Review[] = []
+    public id: string,
+    public fullName: string,
+    public email: string,
+    public phone: string,
+    public address: string,
+    public borrowBooks: BorrowBook[] = [],
+    public reviews: Review[] = []
   ) {
     super();
   }
-    borrowBook(book: Book): BorrowedBook {
-    const borrowed = new BorrowedBook(this, book, new Date(), new Date(), new Date(), new Fine());
+
+  borrowBook(book: Book): BorrowBook {
+    const borrowed = new BorrowBook(this, book, new Date(), new Date(), new Date(), new Fine());
     this.borrowBooks.push(borrowed);
     return borrowed;
   }
@@ -26,7 +32,7 @@ export class Member extends User {
     return new Fine();
   }
 
-  viewBorrowBooks(): BorrowedBook[] {
+  viewBorrowBooks(): BorrowBook[] {
     return this.borrowBooks;
   }
 
@@ -46,3 +52,7 @@ export class Member extends User {
 
 }
 
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 82319c145d9c8a40e98fd7d6b2aba95fbc827c6c
