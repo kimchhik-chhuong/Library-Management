@@ -1,4 +1,8 @@
 import { Payment } from './Payment';
+import { Fine } from './Fine';
+import { Book } from "./Book";
+import { BorrowedBook } from "./BorrowedBook";
+
 
 const payment = new Payment(
     50,                      // amount
@@ -7,7 +11,6 @@ const payment = new Payment(
 );
 
 console.log(payment.getPaymentDetail());
-import { Fine } from './Fine';
 
 const fine = new Fine(50, false);
 
@@ -16,8 +19,7 @@ console.log("Before payment: " + fine.getStatus());
 fine.pay();
 
 console.log("After payment: " + fine.getStatus());
-import { Book } from "./Book";
-import { BorrowedBook } from "./BorrowedBook";
+
 
 let borrowed = new BorrowedBook(
     'MemberA',
