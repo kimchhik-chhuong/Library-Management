@@ -1,23 +1,24 @@
 import { User } from './User';
-import { BorrowedBook } from './BorrowedBook';
+import { BorrowBook } from './BorrowBook';
 import { Review } from './Review';
 import { Book } from './Book';
 import { Fine } from './Fine';
 
 export class Member extends User {
   constructor(
-    private id: string,
-    private fullName: string,
-    private email: string,
-    private phone: string,
-    private address: string,
-    private borrowBooks: BorrowedBook[] = [],
-    private reviews: Review[] = []
+    public id: string,
+    public fullName: string,
+    public email: string,
+    public phone: string,
+    public address: string,
+    public borrowBooks: BorrowBook[] = [],
+    public reviews: Review[] = []
   ) {
     super();
   }
-    borrowBook(book: Book): BorrowedBook {
-    const borrowed = new BorrowedBook(this, book, new Date(), new Date(), new Date(), new Fine());
+
+  borrowBook(book: Book): BorrowBook {
+    const borrowed = new BorrowBook(this, book, new Date(), new Date(), new Date(), new Fine());
     this.borrowBooks.push(borrowed);
     return borrowed;
   }
@@ -26,7 +27,7 @@ export class Member extends User {
     return new Fine();
   }
 
-  viewBorrowBooks(): BorrowedBook[] {
+  viewBorrowBooks(): BorrowBook[] {
     return this.borrowBooks;
   }
 
@@ -36,8 +37,6 @@ export class Member extends User {
     return review;
   }
 
-<<<<<<< HEAD
-=======
    getId(): number {
     return parseInt(this.id);
   }
@@ -47,6 +46,4 @@ export class Member extends User {
   }
 
 
->>>>>>> 91af826601550d2d37a70795e2c7968ba31460a9
->>>>>>> 563e71d3b957b98c96379140fa71f26702ce9840
 }
