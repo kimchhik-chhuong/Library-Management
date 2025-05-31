@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BorrowedBook } from './BorrowedBook';
 
 const borrowDate = new Date('2025-05-01');
@@ -15,11 +14,9 @@ const borrowedBook = new BorrowedBook(
 
 const fine = borrowedBook.CalculateFine(returnDate);
 console.log(`The fine is: ${fine}`);
-=======
 import { Payment } from './Payment';
 import { Fine } from './Fine';
 import { Book } from "./Book";
-import { BorrowedBook } from "./BorrowedBook";
 
 
 const payment = new Payment(
@@ -48,4 +45,3 @@ let borrowed = new BorrowedBook(
 );
 
 console.log("Fine amount: $" + borrowed.CalulateFine(new Date('2024-05-15')));
->>>>>>> main
