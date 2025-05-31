@@ -23,7 +23,7 @@ export class Librarian extends User {
   }
 
   processReturn(borrowedBookId: number): Fine {
-    // TODO: Implement logic to process a book return and calculate fine
+    // TODO: Implement logic to process a book return and calculate Fine
     return new Fine(0, false);
   }
 
