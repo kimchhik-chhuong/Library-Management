@@ -5,6 +5,15 @@ import { Review } from './Review';
 import { Fine } from './Fine';
 
 export class Member extends User {
+  login(email: string, password: string): boolean {
+    throw new Error('Method not implemented.');
+  }
+  logout(): void {
+    throw new Error('Method not implemented.');
+  }
+  updateProfile(info: object): void {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     public id: string,
     public fullName: string,

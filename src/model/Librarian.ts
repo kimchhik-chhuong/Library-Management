@@ -3,6 +3,15 @@ import { BorrowedBook } from "./BorrowedBook";
 import { Fine } from "./Fine";
 
 export class Librarian extends User {
+  login(email: string, password: string): boolean {
+    throw new Error("Method not implemented.");
+  }
+  logout(): void {
+    throw new Error("Method not implemented.");
+  }
+  updateProfile(info: object): void {
+    throw new Error("Method not implemented.");
+  }
   private staffId: number;
   private name: string;
 
