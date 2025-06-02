@@ -1,7 +1,7 @@
 export class Fine {
     constructor(
-        private amount: number,
-        private paid: boolean
+        public amount: number,
+        public paid: boolean
     ){}
 
     pay(): void {

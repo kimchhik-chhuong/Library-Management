@@ -1,8 +1,10 @@
+import { Member } from "./Member";
+
 export class Notification {
     constructor(
-        private member: string,
+        private member: Member,
         private message: string,
-        private datesend: Date
+        private datesend: Date = new Date()
     ) {}
 
     public getNotificationDetail(): string {
