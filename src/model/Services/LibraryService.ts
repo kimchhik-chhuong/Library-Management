@@ -21,9 +21,9 @@ export class LibraryService {
     return fine.amount;
   }
 
-  reserveBook(member: Member, book: Book): Reservation {
-    return new Reservation(member, book);
-  }
+//   reserveBook(member: Member, book: Book): Reservation {
+//     return new Reservation(member, book);
+//   }
 
   notifyReservation(reservation: Reservation): Notification {
     return reservation.notifyMember();

@@ -6,7 +6,7 @@ export class Review {
     public book: Book,
     public rating: number,
     public comment: string,
-    public reviewDate: Date
+    public reviewDate: Date = new Date()
   ) {}
 }
 

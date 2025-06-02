@@ -116,3 +116,4 @@ export class Member extends User {
     return review;
   }
 }
+
