@@ -12,5 +12,6 @@ export class Fine {
     getStatus(): string {
         return this.paid ? "Paid" : `Unpaid - Amount: $${this.amount}`;
     }
+
     
 }
