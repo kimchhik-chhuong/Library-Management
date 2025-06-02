@@ -38,25 +38,45 @@ export class Librarian extends User {
     return new Fine(0, false);
   }
 
-  addBook(book: Book): void {
-    // TODO: Implement logic to add a book
-  }
+  // addBook(book: Book): void {
+  //   // TODO: Implement logic to add a book
+  // }
 
-  removeBook(bookId: string): void {
-    // TODO: Implement logic to remove a book
-  }
+  // removeBook(bookId: string): void {
+  //   // TODO: Implement logic to remove a book
+  // }
 
-  updateBookInfo(book: Book): void {
-    // TODO: Implement logic to update book information
-  }
+  // updateBookInfo(book: Book): void {
+  //   // TODO: Implement logic to update book information
+  // }
 
-  sendReminder(member: Member): void {
-    // TODO: Implement logic to send a reminder to a member
-  }
+  // sendReminder(member: Member): void {
+  //   // TODO: Implement logic to send a reminder to a member
+  // }
 
-  notifyOverdueMembers(): void {
-    // TODO: Implement logic to notify all overdue members
-  }
+  // notifyOverdueMembers(): void {
+  //   // TODO: Implement logic to notify all overdue members
+  // }
+
+  // addBook(book: Book): void {
+  //   // TODO: Implement logic to add a book
+  // }
+
+  // removeBook(bookId: string): void {
+  //   // TODO: Implement logic to remove a book
+  // }
+
+  // updateBookInfo(book: Book): void {
+  //   // TODO: Implement logic to update book information
+  // }
+
+  // sendReminder(member: Member): void {
+  //   // TODO: Implement logic to send a reminder to a member
+  // }
+
+  // notifyOverdueMembers(): void {
+  //   // TODO: Implement logic to notify all overdue members
+  // }
 
   // getId(): number {
   //   return this.staffId;
