@@ -3,6 +3,9 @@ import { Book } from './Book';
 import { Notification } from './Notification';
 
 export class Reservation {
+  notifyMember(): Notification {
+      throw new Error('Method not implemented.');
+  }
   constructor(
     public member: Member,
     public book: Book,
