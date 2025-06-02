@@ -5,6 +5,12 @@ import { Review } from './Review';
 import { Fine } from './Fine';
 
 export class Member extends User {
+  borrowBook(book: Book): string | BorrowedBook {
+      throw new Error('Method not implemented.');
+  }
+  returnBook(borrowedBook: BorrowedBook) {
+      throw new Error('Method not implemented.');
+  }
   login(email: string, password: string): boolean {
     throw new Error('Method not implemented.');
   }
