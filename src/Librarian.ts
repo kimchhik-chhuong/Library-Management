@@ -1,6 +1,8 @@
 import { User } from "./User";
 import { BorrowedBook } from "./BorrowedBook";
 import { Fine } from "./Fine";
+import { Book } from "./Book";
+import { Member } from "./Member";
 
 export class Librarian extends User {
   private staffId: number;
@@ -25,6 +27,26 @@ export class Librarian extends User {
   processReturn(borrowedBookId: number): Fine {
     // TODO: Implement logic to process a book return and calculate Fine
     return new Fine(0, false);
+  }
+
+  addBook(book: Book): void {
+    // TODO: Implement logic to add a book
+  }
+
+  removeBook(bookId: string): void {
+    // TODO: Implement logic to remove a book
+  }
+
+  updateBookInfo(book: Book): void {
+    // TODO: Implement logic to update book information
+  }
+
+  sendReminder(member: Member): void {
+    // TODO: Implement logic to send a reminder to a member
+  }
+
+  notifyOverdueMembers(): void {
+    // TODO: Implement logic to notify all overdue members
   }
 
   getId(): number {
