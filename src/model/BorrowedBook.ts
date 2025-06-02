@@ -17,7 +17,7 @@ export class BorrowedBook {
     const today = this.returnDate || new Date();
     const isLate = today > this.dueDate;
     const daysLate = isLate ? Math.ceil((today.getTime() - this.dueDate.getTime()) / (1000 * 3600 * 24)) : 0;
-    const fineAmount = daysLate * 1.0; // $1 per day late
+    const fineAmount = daysLate * 0.5; // $0.5 per day late
     this.fine = new Fine(fineAmount, false);
     return this.fine;
   }
