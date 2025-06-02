@@ -17,15 +17,16 @@ export class Member extends User {
     super();
   }
 
-  borrowedBook(book: Book): BorrowedBook {
-    const borrowed = new BorrowedBook(this, book, new Date(), new Date(), new Date(), new Fine());
-    this.borrowedBooks.push(borrowed);
-    return borrowed;
-  }
+  // borrowedBook(book: Book): BorrowedBook {
 
-  returnBook(): Fine {
-    return new Fine();
-  }
+  //   const borrowed = new BorrowedBook(this.id, book, new Date(), new Date(), new Date(), new Fine());
+  //   this.borrowedBooks.push(borrowed);
+  //   return borrowed;
+
+  // }
+  // returnBook(): Fine {
+  //   return new Fine();
+  // }
 
   viewBorrowedBooks(): BorrowedBook[] {
     return this.borrowedBooks;
