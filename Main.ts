@@ -1,4 +1,4 @@
-// import { LibraryController } from "./src/Model/Controllers/LibraryController";
+import { LibraryController } from "./src/model/Controllers/LibraryController";
 
-// const controller = new LibraryController();
-// controller.simulateBorrowAndReturn();
+const controller = new LibraryController();
+controller.simulateBorrowAndReturn();
