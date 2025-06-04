@@ -1,24 +1,33 @@
-import { Member } from './Member';
-import { Book } from './Book';
-import { Fine } from './Fine';
+// src/BorrowedBook.ts
+import { Member } from "./Member";
+import { Book } from "./Book";
+import { Fine } from "./Fine";
 
 export class BorrowedBook {
-  public returnDate?: Date;
-  public fine?: Fine;
+    [x: string]: any;
+    public returnDate: Date | null = null;
+    public fine: Fine | null = null;
+    public isReturned = false;
 
-  constructor(
-    public member: Member,
-    public book: Book,
-    public borrowDate: Date = new Date(),
-    public dueDate: Date = new Date(new Date().getTime() + 14 * 24 * 60 * 60 * 1000) // default 2 weeks
-  ) {}
+    constructor(
+        public member: Member,
+        public book: Book,
+        public borrowDate: Date = new Date(),
+        public dueDate: Date = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
+    ) {
+        book.availableCopies--;
+    }
 
-  calculateFine(): Fine {
-    const today = this.returnDate || new Date();
-    const isLate = today > this.dueDate;
-    const daysLate = isLate ? Math.ceil((today.getTime() - this.dueDate.getTime()) / (1000 * 3600 * 24)) : 0;
-    const fineAmount = daysLate * 1.0; // $1 per day late
-    this.fine = new Fine(fineAmount, false);
-    return this.fine;
-  }
+    returnBook(returnDate: Date = new Date()): Fine | null {
+        this.returnDate = returnDate;
+        this.isReturned = true;
+        this.book.availableCopies++;
+
+        if (returnDate > this.dueDate) {
+            const daysLate = Math.ceil((returnDate.getTime() - this.dueDate.getTime()) / (1000 * 60 * 60 * 24));
+            this.fine = new Fine(this.member, this, daysLate * 0.5);
+            return this.fine;
+        }
+        return null;
+    }
 }

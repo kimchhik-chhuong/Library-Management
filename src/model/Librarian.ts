@@ -5,84 +5,53 @@ import { Book } from "./Book";
 import { Member } from "./Member";
 
 export class Librarian extends User {
-  getId(): number {
-    throw new Error('Method not implemented.');
-  }
-  getName(): string {
-    throw new Error('Method not implemented.');
-  }
-  login(email: string, password: string): boolean {
-    throw new Error('Method not implemented.');
-  }
-  logout(): void {
-    throw new Error('Method not implemented.');
-  }
-  updateProfile(info: object): void {
-    throw new Error('Method not implemented.');
-  }
-  viewBorrowedBooksByMember(member: Member): BorrowedBook[] {
-    return member.borrowBooks;
-  }
+    login(email: string, password: string): boolean {
+      throw new Error("Method not implemented.");
+    }
+    logout(): void {
+      throw new Error("Method not implemented.");
+    }
+    updateProfile(info: object): void {
+      throw new Error("Method not implemented.");
+    }
+    constructor(
+        public staffId: number,
+        public name: string,
+        public email: string
+    ) {
+        super(email, "librarian_password"); // Assuming User requires email and password
+    }
 
-  // checkAvailableCopies(book: Book): number {
-  //   return book.availableCopies;
-  // }
+    getId(): number {
+        return this.staffId;
+    }
 
-  // checkAvailableCopies(bookId: number): number {
-  //   // TODO: Implement logic to check available copies of a book
-  //   return 0;
-  // }
+    getName(): string {
+        return this.name;
+    }
 
-  processReturn(borrowedBookId: number): Fine {
-    // TODO: Implement logic to process a book return and calculate Fine
-    return new Fine(0, false);
-  }
+    viewBorrowedBooksByMember(member: Member): BorrowedBook[] {
+        return member.borrowedBooks; // Note: changed from borrowBooks to borrowedBooks
+    }
 
-  // addBook(book: Book): void {
-  //   // TODO: Implement logic to add a book
-  // }
+    checkAvailableCopies(book: Book): number {
+        return book.availableCopies;
+    }
 
-  // removeBook(bookId: string): void {
-  //   // TODO: Implement logic to remove a book
-  // }
+    processReturn(borrowedBook: BorrowedBook): Fine | null {
+        return borrowedBook.returnBook();
+    }
 
-  // updateBookInfo(book: Book): void {
-  //   // TODO: Implement logic to update book information
-  // }
+    addBook(book: Book, collection: Book[]): void {
+        collection.push(book);
+    }
 
-  // sendReminder(member: Member): void {
-  //   // TODO: Implement logic to send a reminder to a member
-  // }
-
-  // notifyOverdueMembers(): void {
-  //   // TODO: Implement logic to notify all overdue members
-  // }
-
-  // addBook(book: Book): void {
-  //   // TODO: Implement logic to add a book
-  // }
-
-  // removeBook(bookId: string): void {
-  //   // TODO: Implement logic to remove a book
-  // }
-
-  // updateBookInfo(book: Book): void {
-  //   // TODO: Implement logic to update book information
-  // }
-
-  // sendReminder(member: Member): void {
-  //   // TODO: Implement logic to send a reminder to a member
-  // }
-
-  // notifyOverdueMembers(): void {
-  //   // TODO: Implement logic to notify all overdue members
-  // }
-
-  // getId(): number {
-  //   return this.staffId;
-  // }
-
-  // getName(): string {
-  //   return this.name;
-  // }
+    removeBook(bookId: string, collection: Book[]): boolean {
+        const index = collection.findIndex(b => b.id === bookId);
+        if (index !== -1) {
+            collection.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
 }
