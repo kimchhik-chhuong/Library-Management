@@ -18,16 +18,12 @@ export class BorrowedBook {
         book.availableCopies--;
     }
 
-    returnBook(returnDate: Date = new Date()): Fine | null {
-        this.returnDate = returnDate;
-        this.isReturned = true;
-        this.book.availableCopies++;
-
-        if (returnDate > this.dueDate) {
-            const daysLate = Math.ceil((returnDate.getTime() - this.dueDate.getTime()) / (1000 * 60 * 60 * 24));
-            this.fine = new Fine(this.member, this, daysLate * 0.5);
-            return this.fine;
-        }
-        return null;
-    }
+  calculateFine(): Fine {
+    const today = this.returnDate || new Date();
+    const isLate = today > this.dueDate;
+    const daysLate = isLate ? Math.ceil((today.getTime() - this.dueDate.getTime()) / (1000 * 3600 * 24)) : 0;
+    const fineAmount = daysLate * 1.0; // $1 per day late
+    this.fine = new Fine(fineAmount, false);
+    return this.fine;
+  }
 }
