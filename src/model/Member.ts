@@ -63,57 +63,49 @@
 // }
 
 
-import { User } from './User';
-import { Book } from './Book';
-import { BorrowedBook } from './BorrowedBook';
-import { Review } from './Review';
-import { Fine } from './Fine';
+import { Book } from "./Book";
+import { BorrowedBook } from "./BorrowedBook";
+import { Review } from "./Review";
 
-export class Member extends User {
-  getId(): number {
-    throw new Error('Method not implemented.');
-  }
-  getName(): string {
-    throw new Error('Method not implemented.');
-  }
-  login(email: string, password: string): boolean {
-    throw new Error('Method not implemented.');
-  }
-  logout(): void {
-    throw new Error('Method not implemented.');
-  }
-  updateProfile(info: object): void {
-    throw new Error('Method not implemented.');
-  }
-  public email: string;
-  public phone: string;
-  public address: string;
-  public borrowBooks: BorrowedBook[] = [];
-  public reviews: Review[] = [];
+export class Member {
+    public borrowedBooks: BorrowedBook[] = [];
+    public reviews: Review[] = [];
+      get fullName(): string {
+        // Replace with actual logic if you have firstName/lastName fields
+        return this.name || '';
+    }
 
-  constructor(id: string, fullName: string, email: string, phone: string, address: string) {
-    super(id, fullName);
-    this.email = email;
-    this.phone = phone;
-    this.address = address;
-  }
+    constructor(
+        public id: string,
+        public name: string,
+        public email: string,
+        public phone: string,
+        public address: string
+    ) {}
 
-  borrowBook(book: Book): BorrowedBook {
-    const borrowed = new BorrowedBook(this, book);
-    this.borrowBooks.push(borrowed);
-    return borrowed;
-  }
+    borrowBook(book: Book): BorrowedBook {
+        if (book.availableCopies <= 0) {
+            throw new Error("No available copies");
+        }
+        const borrowedBook = new BorrowedBook(this, book);
+        this.borrowedBooks.push(borrowedBook);
+        return borrowedBook;
+    }
 
-  returnBook(borrowedBook: BorrowedBook): Fine {
-    borrowedBook.returnDate = new Date();
-    return borrowedBook.calculateFine();
-  }
+    addReview(book: Book, rating: number, comment: string, borrowedBook: BorrowedBook): Review {
+        if (!borrowedBook.isReturned) {
+            throw new Error("Cannot review a book that hasn't been returned");
+        }
+        const review = new Review(this, book, rating, comment, new Date(), borrowedBook);
+        this.reviews.push(review);
+        book.reviews.push(review);
+        return review;
+    }
 
-  reviewBook(book: Book, rating: number, comment: string): Review {
-    const review = new Review(this, book, rating, comment);
-    this.reviews.push(review);
-    book.reviews.push(review);
-    return review;
-  }
+    returnBook(borrowedBook: import("./BorrowedBook").BorrowedBook): { amount: number } {
+        // Implement your logic for returning a book and calculating fine
+        // For now, return a dummy fine object
+        return { amount: 0 };
+    }
 }
 

@@ -36,8 +36,8 @@ export class LibraryController {
   // Add inside LibraryController class
 
 viewBorrowedBooksAndDueDates(member: Member) {
-  if (member.borrowBooks && member.borrowBooks.length > 0) {
-    member.borrowBooks.forEach(borrowed => {
+  if (member.borrowedBooks && member.borrowedBooks.length > 0) {
+    member.borrowedBooks.forEach(borrowed => {
       console.log(`Book: ${borrowed.book.title}, Due Date: ${borrowed.dueDate}`);
     });
   } else {
@@ -48,9 +48,9 @@ viewBorrowedBooksAndDueDates(member: Member) {
 // Add inside LibraryController class
 viewAllBorrowedBooks(members: Member[]) {
   members.forEach(member => {
-    if (member.borrowBooks && member.borrowBooks.length > 0) {
+    if (member.borrowedBooks && member.borrowedBooks.length > 0) {
       console.log(`Member: ${member.fullName}`);
-      member.borrowBooks.forEach(borrowed => {
+      member.borrowedBooks.forEach(borrowed => {
         console.log(`  Book: ${borrowed.book.title}, Due Date: ${borrowed.dueDate}`);
       });
     }

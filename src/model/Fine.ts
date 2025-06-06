@@ -1,17 +1,13 @@
+// src/Fine.ts
 export class Fine {
     constructor(
         public amount: number,
-        public paid: boolean
-    ){}
+        public isPaid: boolean,
+        public paymentDate: Date | null = null
+    ) {}
 
     pay(): void {
-        this.amount = 0;
-        this.paid = true;
+        this.isPaid = true;
+        this.paymentDate = new Date();
     }
-
-    getStatus(): string {
-        return this.paid ? "Paid" : `Unpaid - Amount: $${this.amount}`;
-    }
-
-    
 }

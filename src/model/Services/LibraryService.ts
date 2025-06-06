@@ -1,19 +1,12 @@
-import { Member } from '../Member';
-import { Book } from '../Book';
-import { BorrowedBook } from '../BorrowedBook';
-import { Return } from '../Return';
-import { Reservation } from '../Reservation';
-import { Notification } from '../Notification';
+import { Member } from "../Member";
+import { Book } from "../Book";
+import { BorrowedBook } from "../BorrowedBook";
 
 export class LibraryService {
-  borrowBook(member: Member, book: Book): BorrowedBook | string {
-    if (!book.isAvailable()) {
-      return 'Book is not available';
+    // Member borrows a book
+    borrowBook(member: Member, book: Book): BorrowedBook {
+        return member.borrowBook(book);
     }
-
-    book.availableCopies -= 1;
-    return member.borrowBook(book);
-  }
 
   returnBook(member: Member, borrowedBook: BorrowedBook): number {
   const fine = member.returnBook(borrowedBook);
