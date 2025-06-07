@@ -8,7 +8,7 @@ export class BorrowedBook {
     public returnDate: Date | null = null;
     public fine: Fine | null = null;
     public isReturned = false;
-
+    
     constructor(
         public member: Member,
         public book: Book,

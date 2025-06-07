@@ -3,6 +3,7 @@ import { Book } from "../Book";
 import { BorrowedBook } from "../BorrowedBook";
 
 export class LibraryService {
+  [x: string]: any;
     // Member borrows a book
     borrowBook(member: Member, book: Book): BorrowedBook {
         return member.borrowBook(book);

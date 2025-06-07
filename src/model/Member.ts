@@ -68,6 +68,9 @@ import { BorrowedBook } from "./BorrowedBook";
 import { Review } from "./Review";
 
 export class Member {
+  getDisplayName() {
+    throw new Error('Method not implemented.');
+  }
     public borrowedBooks: BorrowedBook[] = [];
     public reviews: Review[] = [];
       get fullName(): string {
