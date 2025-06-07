@@ -1,14 +1,12 @@
 export class BorrowedBook {
-    constructor(private member: string, 
-        private book: string,
-        private borrowdate: Date,
+    constructor(
         private duedate: Date,
         private returndate: Date,
-        private fine= 0)
-        {}
+        private fine: number = 0
+    ) {}
 
-        CalulateFine(returndate: Date): number{
-            const lateDays = Math.ceil(
+    calculateFine(): number {
+        const lateDays = Math.ceil(
             (this.returndate.getTime() - this.duedate.getTime()) / (1000 * 3600 * 24)
         );
 
